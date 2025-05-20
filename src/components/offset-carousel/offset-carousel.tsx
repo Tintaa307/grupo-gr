@@ -30,10 +30,6 @@ export function OffsetCarousel({ images }: ProductCarouselProps) {
     )
   }, [images.length])
 
-  const goToSlide = (slideIndex: number) => {
-    setCurrentIndex(slideIndex)
-  }
-
   // Pausar el autoplay cuando el usuario interactúa con el carrusel
   const pauseAutoPlay = () => {
     setIsAutoPlaying(false)

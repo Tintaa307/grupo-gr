@@ -1,9 +1,6 @@
 "use client"
 
-import { useState } from "react"
 import Image from "next/image"
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
-import Link from "next/link"
 
 interface Trabajo {
   id: number
@@ -14,8 +11,6 @@ interface Trabajo {
 }
 
 export function RecentWorks() {
-  const [selectedImage, setSelectedImage] = useState<Trabajo | null>(null)
-
   const trabajos: Trabajo[] = [
     {
       id: 1,

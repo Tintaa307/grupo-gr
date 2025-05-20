@@ -1,11 +1,9 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Link from "next/link"
 
 export function Footer() {
-  const [mapLoaded, setMapLoaded] = useState(false)
-
   return (
     <footer className="w-full bg-gray-50">
       {/* Mapa */}
