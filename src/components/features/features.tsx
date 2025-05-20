@@ -1,11 +1,15 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 export function Features() {
+  const router = useRouter()
   return (
-    <section className="w-full mt-12">
+    <section id="services" className="w-full mt-12">
       {/* Impresión Offset */}
       <div className="grid grid-cols-1 md:grid-cols-2">
         {/* Imagen izquierda */}
@@ -34,6 +38,7 @@ export function Features() {
           <div className="mt-8">
             <Link href="/servicios/digital" className="flex items-center gap-2">
               <Button
+                onClick={() => router.push("/offset-digital")}
                 variant="outline"
                 size="lg"
                 className="text-white hover:text-white bg-transparent hover:bg-transparent group cursor-pointer rounded-full"
@@ -60,6 +65,7 @@ export function Features() {
           <div className="mt-8">
             <Link href="/servicios/digital" className="flex items-center gap-2">
               <Button
+                onClick={() => router.push("/digital-offset")}
                 variant="outline"
                 size="lg"
                 className="text-white hover:text-white bg-transparent hover:bg-transparent group cursor-pointer rounded-full"

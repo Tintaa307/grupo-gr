@@ -18,7 +18,7 @@ export function CTASection() {
           size="lg"
           className="border-green-500 text-green-500 hover:text-green-500 hover:bg-transparent rounded-full  transition-colors"
         >
-          <Link href="/contacto" className="flex items-center gap-2 px-8">
+          <Link href="/#contact" className="flex items-center gap-2 px-8">
             CONTACTANOS <ArrowRight className="h-4 w-4" />
           </Link>
         </Button>

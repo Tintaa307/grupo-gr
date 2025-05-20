@@ -11,6 +11,7 @@ import { ArrowRight } from "lucide-react"
 import { InstructivoBanner } from "@/components/instructivo-banner/instructivo-banner"
 import { CTASection } from "@/components/cta-section/cta-section"
 import { Contact } from "@/components/contact/contact"
+import Link from "next/link"
 
 export default function Home() {
   const carouselImages = [
@@ -41,14 +42,16 @@ export default function Home() {
             <p className="text-xl md:text-2xl font-light tracking-tight">
               Brindando Soluciones Gráficas para Empresas desde 1998
             </p>
-            <Button
-              variant="default"
-              size="lg"
-              className="mt-4 bg-primary hover:bg-primary/90 cursor-pointer group"
-            >
-              Contactar Asesor Comercial
-              <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
-            </Button>
+            <Link href="/#contact">
+              <Button
+                variant="default"
+                size="lg"
+                className="mt-4 bg-primary hover:bg-primary/90 cursor-pointer group"
+              >
+                Contactar Asesor Comercial
+                <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+              </Button>
+            </Link>
           </div>
 
           <div className="relative h-[400px] w-full">

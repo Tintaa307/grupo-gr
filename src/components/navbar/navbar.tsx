@@ -13,11 +13,11 @@ export function Navbar() {
   const navItems = [
     {
       label: "La imprenta",
-      href: "/la-imprenta",
+      href: "/",
     },
     {
       label: "Productos",
-      href: "/productos",
+      href: "/#products",
     },
     {
       label: "Offset / Digital",
@@ -25,11 +25,11 @@ export function Navbar() {
     },
     {
       label: "Servicios",
-      href: "/servicios",
+      href: "/#services",
     },
     {
       label: "Contacto",
-      href: "/#contacto",
+      href: "/#contact",
     },
   ]
 

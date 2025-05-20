@@ -15,14 +15,17 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import { Separator } from "../ui/separator"
+import { sendEmail } from "@/actions/email-action"
+import { toast } from "sonner"
+import { ZodError } from "zod"
 
 export function Contact() {
   const [formData, setFormData] = useState({
-    nombre: "",
-    empresa: "",
+    name: "",
+    enterprise: "",
     email: "",
-    telefono: "",
-    mensaje: "",
+    phone: "",
+    message: "",
   })
 
   const handleChange = (
@@ -32,25 +35,33 @@ export function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Aquí iría la lógica para enviar el formulario
-    console.log("Formulario enviado:", formData)
-    // Resetear el formulario después de enviar
-    setFormData({
-      nombre: "",
-      empresa: "",
-      email: "",
-      telefono: "",
-      mensaje: "",
-    })
-    alert(
-      "Mensaje enviado correctamente. Nos pondremos en contacto a la brevedad."
-    )
+    try {
+      const response = await sendEmail(formData)
+
+      if (response.error instanceof ZodError) {
+        console.log(response.error)
+        return
+      }
+
+      if (response.error) {
+        toast.error(response.error as string)
+        return
+      }
+
+      toast.success(response.success)
+    } catch (error) {
+      if (error instanceof ZodError) {
+        console.log(error)
+      }
+      toast.error("Error al enviar el mensaje")
+      return
+    }
   }
 
   return (
-    <section className="w-full mb-10">
+    <section id="contact" className="w-full mb-10">
       <div className="grid grid-cols-1 md:grid-cols-2">
         {/* Imagen de la imprenta */}
         <div className="relative h-[400px] md:h-[500px]">
@@ -130,18 +141,21 @@ export function Contact() {
                 <div className="flex space-x-4">
                   <Link
                     href="https://facebook.com/grupogalleries"
+                    target="_blank"
                     className="w-8 h-8 flex items-center justify-center border border-gray-300 hover:bg-gray-100"
                   >
                     <Facebook className="w-4 h-4 text-gray-600" />
                   </Link>
                   <Link
                     href="https://instagram.com/grupogalleries"
+                    target="_blank"
                     className="w-8 h-8 flex items-center justify-center border border-gray-300 hover:bg-gray-100"
                   >
                     <Instagram className="w-4 h-4 text-gray-600" />
                   </Link>
                   <Link
                     href="https://linkedin.com/company/grupogalleries"
+                    target="_blank"
                     className="w-8 h-8 flex items-center justify-center border border-gray-300 hover:bg-gray-100"
                   >
                     <Linkedin className="w-4 h-4 text-gray-600" />
@@ -168,7 +182,7 @@ export function Contact() {
                   <input
                     id="nombre"
                     name="nombre"
-                    value={formData.nombre}
+                    value={formData.name}
                     onChange={handleChange}
                     placeholder="Escriba su Nombre"
                     className="w-full border border-gray-300 p-2 text-gray-700"
@@ -185,7 +199,7 @@ export function Contact() {
                   <input
                     id="empresa"
                     name="empresa"
-                    value={formData.empresa}
+                    value={formData.enterprise}
                     onChange={handleChange}
                     placeholder="Escriba su Apellido"
                     className="w-full border border-gray-300 p-2 text-gray-700"
@@ -222,7 +236,7 @@ export function Contact() {
                   <input
                     id="telefono"
                     name="telefono"
-                    value={formData.telefono}
+                    value={formData.phone}
                     onChange={handleChange}
                     placeholder="Escriba su Teléfono"
                     className="w-full border border-gray-300 p-2 text-gray-700"
@@ -240,7 +254,7 @@ export function Contact() {
                 <textarea
                   id="mensaje"
                   name="mensaje"
-                  value={formData.mensaje}
+                  value={formData.message}
                   onChange={handleChange}
                   placeholder="Escriba su mensaje"
                   rows={6}
