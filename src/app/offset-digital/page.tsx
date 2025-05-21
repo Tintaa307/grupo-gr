@@ -72,54 +72,58 @@ export default function OffsetDigitalPage() {
   ]
 
   return (
-    <main className="flex min-h-screen flex-col pt-[140px] md:pt-[160px] pb-16">
-      <div className="w-full mx-auto">
+    <main className="flex min-h-screen flex-col pt-[120px] sm:pt-[130px] md:pt-[160px] pb-8 sm:pb-12 md:pb-16">
+      <div className="w-full mx-auto px-4 sm:px-6">
         {/* Encabezado */}
-        <div className="text-center mb-12">
-          <p className="text-sm uppercase font-medium tracking-wider text-black mb-2">
+        <div className="text-center mb-6 sm:mb-8 md:mb-12">
+          <p className="text-xs sm:text-sm uppercase font-medium tracking-wider text-black mb-1 sm:mb-2">
             GRUPO GALLERIES COMPAÑÍA GRÁFICA
           </p>
-          <h1 className="text-4xl md:text-5xl font-extralight text-black">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extralight text-black">
             IMPRESIÓN OFFSET
           </h1>
         </div>
 
         {/* Galería de imágenes */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="relative h-[300px] md:h-[400px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8">
+          <div className="relative h-[200px] sm:h-[250px] md:h-[300px] lg:h-[400px]">
             <Image
               src="/offset-digital/image-1.jpg"
               alt="Máquina de impresión offset - detalle de rodillos"
               fill
               className="object-cover"
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+              priority
             />
           </div>
-          <div className="relative h-[300px] md:h-[400px]">
+          <div className="relative h-[200px] sm:h-[250px] md:h-[300px] lg:h-[400px]">
             <Image
               src="/offset-digital/image-2.jpg"
               alt="Máquina de impresión offset - imprimiendo material"
               fill
               className="object-cover"
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
             />
           </div>
-          <div className="relative h-[300px] md:h-[400px]">
+          <div className="relative h-[200px] sm:h-[250px] md:h-[300px] lg:h-[400px] sm:col-span-2 md:col-span-1">
             <Image
               src="/offset-digital/image-3.jpg"
               alt="Heidelberg Speedmaster - detalle de máquina"
               fill
               className="object-cover"
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, 33vw"
             />
           </div>
         </div>
 
-        <div className="w-full bg-[#24b47e] text-white py-16 px-4">
+        <div className="w-full bg-[#24b47e] text-white py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 mb-6 sm:mb-8">
           <div className="container mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
               <div className="max-w-4xl col-span-1 md:col-span-2">
-                <h2 className="text-3xl md:text-4xl font-extralight text-center mb-10">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-extralight text-center mb-6 sm:mb-8 md:mb-10">
                   IMPRESIÓN
                 </h2>
-                <p className="mb-8 text-left">
+                <p className="mb-4 sm:mb-6 md:mb-8 text-left text-sm sm:text-base">
                   Contamos con diferentes máquinas planas y rotativas de
                   múltiples formatos para adaptarnos a cada necesidad,
                   obteniendo un resultado profesional con un tiempo de respuesta
@@ -129,7 +133,7 @@ export default function OffsetDigitalPage() {
                   gran escala.
                 </p>
 
-                <p className="text-left">
+                <p className="text-left text-sm sm:text-base">
                   Todos los trabajos pueden tener una amplia gama de
                   terminaciones: troquelados, laminados, encuadernados, trazados
                   o laqueados.
@@ -137,17 +141,24 @@ export default function OffsetDigitalPage() {
               </div>
 
               <div className="col-span-1">
-                <div className="grid grid-cols-2 gap-x-8 gap-y-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-2">
                   <div>
-                    <ul className="space-y-2">
-                      {list1.map((item) => (
+                    <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm">
+                      {list1.slice(0, 7).map((item) => (
                         <li key={item}>{item}</li>
                       ))}
                     </ul>
                   </div>
                   <div>
-                    <ul className="space-y-2">
-                      {list2.map((item) => (
+                    <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm">
+                      {list2.slice(0, 7).map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="sm:col-span-2 mt-4">
+                    <ul className="grid grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-1 sm:gap-y-2 text-xs sm:text-sm">
+                      {[...list1.slice(7), ...list2.slice(7)].map((item) => (
                         <li key={item}>{item}</li>
                       ))}
                     </ul>
@@ -158,14 +169,14 @@ export default function OffsetDigitalPage() {
           </div>
         </div>
 
-        <div className="bg-[#333333] text-white py-16 px-4">
+        <div className="bg-[#333333] text-white py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 mb-6 sm:mb-8">
           <div className="container mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               <div>
-                <h2 className="text-3xl md:text-4xl font-extralight text-center mb-10">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-extralight text-center mb-6 sm:mb-8 md:mb-10">
                   POST-IMPRESIÓN
                 </h2>
-                <p className="mb-6">
+                <p className="mb-4 sm:mb-6 text-sm sm:text-base">
                   Para explotar al máximo la creatividad de nuestros clientes y
                   entregar las mejores piezas gráficas ofrecemos la mayor
                   variedad de acabados para sus necesidades. Realizamos todo
@@ -175,15 +186,19 @@ export default function OffsetDigitalPage() {
               </div>
 
               <div>
-                <h3 className="font-medium mb-3">Acabados:</h3>
-                <ul className="space-y-2 mb-6">
+                <h3 className="font-medium mb-2 sm:mb-3 text-sm sm:text-base">
+                  Acabados:
+                </h3>
+                <ul className="space-y-1 sm:space-y-2 mb-4 sm:mb-6 text-xs sm:text-sm">
                   {list3.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
 
-                <h3 className="font-medium mb-3">Acabados especiales:</h3>
-                <ul className="space-y-2">
+                <h3 className="font-medium mb-2 sm:mb-3 text-sm sm:text-base">
+                  Acabados especiales:
+                </h3>
+                <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm">
                   {list4.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
@@ -192,13 +207,14 @@ export default function OffsetDigitalPage() {
             </div>
           </div>
         </div>
-        <div className="py-16 bg-white">
+
+        <div className="py-8 sm:py-12 md:py-16 bg-white">
           <div className="w-full mx-auto">
-            <div className="text-center mb-10">
-              <p className="text-sm uppercase tracking-wider text-black mb-2">
+            <div className="text-center mb-6 sm:mb-8 md:mb-10">
+              <p className="text-xs sm:text-sm uppercase tracking-wider text-black mb-1 sm:mb-2">
                 GRUPO GALLERIES COMPAÑÍA GRÁFICA
               </p>
-              <h2 className="text-3xl md:text-4xl font-extralight text-black">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extralight text-black">
                 OFFSET DIGITAL
               </h2>
             </div>

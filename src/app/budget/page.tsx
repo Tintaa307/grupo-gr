@@ -11,7 +11,7 @@ export default function BudgetPage() {
       {/* Contenedor del formulario */}
       <div className="container mx-auto px-4 -mt-[100px] mb-16">
         <div className="bg-white shadow-lg rounded-sm overflow-hidden">
-          <div className="grid grid-cols-1 md:grid-cols-2">
+          <div className="grid grid-cols-1 lg:grid-cols-2">
             {/* Columna izquierda - Información de contacto */}
             <div className="p-8 border-r border-gray-200">
               <h2 className="text-xl font-medium text-gray-800 mb-6">
