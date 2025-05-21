@@ -66,7 +66,7 @@ export default function Home() {
       {/* <LegislaturaBanner /> */}
       <Features />
       <RecentWorks />
-      <CertificacionBanner />
+      {/* <CertificacionBanner /> */}
       <Services />
       <InstructivoBanner />
       <CTASection />
