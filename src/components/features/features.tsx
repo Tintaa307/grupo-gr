@@ -38,9 +38,8 @@ export function Features() {
             </p>
           </div>
           <div className="mt-6 sm:mt-8">
-            <Link href="/servicios/digital" className="flex items-center gap-2">
+            <Link href="/offset-digital" className="flex items-center gap-2">
               <Button
-                onClick={() => router.push("/offset-digital")}
                 variant="outline"
                 size="lg"
                 className="text-white hover:text-white bg-transparent hover:bg-transparent group cursor-pointer rounded-full text-sm sm:text-base py-2 px-4 sm:py-3 sm:px-6"
@@ -65,9 +64,8 @@ export function Features() {
             <p>Alta velocidad de impresión sin chapa.</p>
           </div>
           <div className="mt-6 sm:mt-8">
-            <Link href="/servicios/digital" className="flex items-center gap-2">
+            <Link href="/offset-digital" className="flex items-center gap-2">
               <Button
-                onClick={() => router.push("/digital-offset")}
                 variant="outline"
                 size="lg"
                 className="text-white hover:text-white bg-transparent hover:bg-transparent group cursor-pointer rounded-full text-sm sm:text-base py-2 px-4 sm:py-3 sm:px-6"
