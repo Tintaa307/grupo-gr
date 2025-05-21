@@ -32,8 +32,8 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col pt-[140px] md:pt-[160px]">
       <section className="relative w-full h-[65vh]">
-        <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 py-12 px-4 md:px-6 items-center">
-          <div className="space-y-6 max-md:text-center max-md:flex max-md:flex-col max-md:items-center">
+        <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 py-12 px-4 md:px-6 items-center">
+          <div className="space-y-6 max-lg:text-center max-lg:flex max-lg:flex-col max-lg:items-center">
             <h1 className="text-5xl md:text-6xl font-light tracking-tight">
               La <span className="text-primary">calidad</span> que tu
               <br />
