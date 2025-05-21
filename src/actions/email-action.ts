@@ -2,9 +2,9 @@
 
 import { ContactSchema } from "@/lib/validations/contact-schema"
 import { ContactForm } from "@/types/types"
-import axios from "axios"
+import { sendEmail } from "@/lib/nodemailer"
 
-export const sendEmail = async (formData: ContactForm) => {
+export const sendEmailAction = async (formData: ContactForm) => {
   const validatedFields = ContactSchema.safeParse(formData)
 
   if (!validatedFields.success) {
@@ -13,7 +13,7 @@ export const sendEmail = async (formData: ContactForm) => {
 
   const { name, email, phone, enterprise, message } = validatedFields.data
 
-  const response = await axios.post("/api/email", {
+  const result = await sendEmail({
     name,
     email,
     phone,
@@ -21,7 +21,7 @@ export const sendEmail = async (formData: ContactForm) => {
     message,
   })
 
-  if (response.status !== 200) {
+  if (result.error) {
     return { error: "Error al enviar el mensaje" }
   }
 

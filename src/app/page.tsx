@@ -33,13 +33,13 @@ export default function Home() {
     <main className="flex min-h-screen flex-col pt-[140px] md:pt-[160px]">
       <section className="relative w-full h-[65vh]">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 py-12 px-4 md:px-6 items-center">
-          <div className="space-y-6">
-            <h1 className="text-4xl md:text-6xl font-light tracking-tight">
+          <div className="space-y-6 max-md:text-center max-md:flex max-md:flex-col max-md:items-center">
+            <h1 className="text-5xl md:text-6xl font-light tracking-tight">
               La <span className="text-primary">calidad</span> que tu
               <br />
               empresa se merece
             </h1>
-            <p className="text-xl md:text-2xl font-light tracking-tight">
+            <p className="text-base md:text-2xl font-light tracking-tight">
               Brindando Soluciones Gráficas para Empresas desde 1998
             </p>
             <Link href="/#contact">

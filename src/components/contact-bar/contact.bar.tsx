@@ -50,8 +50,8 @@ export function ContactBar() {
   ]
 
   return (
-    <div className="w-full bg-white border-b py-2 fixed top-0 left-0 z-50 max-lg:hidden">
-      <div className="container mx-auto flex flex-wrap justify-center gap-16 px-4 text-sm">
+    <div className="w-full bg-white border-b py-2 fixed top-0 left-0 z-50 max-md:hidden">
+      <div className="container mx-auto flex flex-wrap justify-center gap-16 px-4 text-sm max-lg:gap-4">
         {contactItems.map((item) => (
           <Link
             key={item.href}

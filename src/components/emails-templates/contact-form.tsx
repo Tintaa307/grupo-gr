@@ -31,7 +31,7 @@ export const ContactFormEmail = ({
         <Container style={container}>
           <Section style={logoContainer}>
             <Img
-              src={`https://placeholder.svg?height=60&width=200&text=Grupo+Galleries`}
+              src={`https://grupogr.com.ar/logo-grupo-gr.png?height=60&width=200&text=Grupo+Galleries`}
               width="200"
               height="60"
               alt="Grupo Galleries"
