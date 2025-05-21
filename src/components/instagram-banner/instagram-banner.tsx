@@ -7,7 +7,7 @@ export function InstagramBanner() {
   return (
     <section
       onClick={() => router.push("https://www.instagram.com/grupogalleries/")}
-      className="w-full bg-[url('/banners/banner-ig.jpg')] bg-cover bg-center text-white py-8 h-[250px] cursor-pointer"
+      className="w-full bg-[url('/banners/banner-ig.jpg')] bg-cover bg-center text-white py-8 h-[250px] cursor-pointer max-md:hidden"
     />
   )
 }
