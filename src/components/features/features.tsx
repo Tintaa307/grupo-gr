@@ -4,10 +4,8 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
 
 export function Features() {
-  const router = useRouter()
   return (
     <section id="services" className="w-full mt-8 sm:mt-12">
       {/* Impresión Offset */}

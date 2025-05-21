@@ -25,6 +25,24 @@ export const metadata: Metadata = {
       url: "/favicon.ico",
     },
   ],
+  keywords: [
+    "Impresión offset",
+    "Impresión digital",
+    "Impresión offset digital",
+    "Impresión offset digital en Buenos Aires",
+    "Impresión offset digital en Argentina",
+    "Impresión offset digital en CABA",
+    "Impresión offset digital en Capital Federal",
+    "Impresión offset digital en Argentina",
+    "Impresión offset digital en CABA",
+    "Impresión offset digital en Capital Federal",
+    "Impresión offset digital en Argentina",
+    "impresion",
+    "grafica",
+    "grupogalleries",
+    "grupogr",
+    "grafica gr",
+  ],
 }
 
 export default function RootLayout({
