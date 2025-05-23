@@ -61,9 +61,9 @@ export default function Home() {
       {/* Banner de Instagram */}
       <EnviosBanner />
       <InstagramBanner />
+      <RecentWorks />
       {/* <LegislaturaBanner /> */}
       <Features />
-      <RecentWorks />
       {/* <CertificacionBanner /> */}
       <Services />
       <InstructivoBanner />

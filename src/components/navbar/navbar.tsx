@@ -21,8 +21,6 @@ import {
 } from "@/components/ui/sheet"
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-
   const navItems = [
     {
       label: "La imprenta",
@@ -46,34 +44,14 @@ export function Navbar() {
     },
   ]
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 10
-      if (isScrolled !== scrolled) {
-        setScrolled(isScrolled)
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => {
-      window.removeEventListener("scroll", handleScroll)
-    }
-  }, [scrolled])
-
   return (
     <header
-      className={`w-full bg-white py-4 border-b fixed top-8 left-0 z-40 transition-all duration-300 max-md:top-0 ${
-        scrolled ? "py-2 shadow-md" : "py-4"
-      }`}
+      className={`w-full bg-white py-5 border-b fixed top-8 max-lg:top-0 left-0 z-40 transition-all duration-300 max-md:top-0 shadow-md`}
     >
       <div className="container mx-auto flex flex-wrap justify-between items-center px-4">
         {/* Logo */}
         <Link href="/" className="flex items-center">
-          <div
-            className={`relative transition-all duration-300 ${
-              scrolled ? "h-12 w-48" : "h-16 w-64"
-            }`}
-          >
+          <div className={`relative transition-all duration-300 h-[65px] w-64`}>
             <Image
               src="/logo-grupo-gr.png"
               alt="Grupo Galleries - Compañía Gráfica"

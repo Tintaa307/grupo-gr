@@ -106,10 +106,14 @@ export function Contact() {
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-800">Dirección</h4>
-                  <p className="text-gray-600 text-sm sm:text-base">
+                  <Link
+                    href="https://www.google.com/maps?ll=-34.643754,-58.403699&z=16&t=m&hl=es&gl=AR&mapclient=embed&q=José+C.+Paz+2969+C1437IQA+Cdad.+Autónoma+de+Buenos+Aires"
+                    target="_blank"
+                    className="text-gray-600 text-sm sm:text-base underline"
+                  >
                     José C. Paz 2969, Distrito Tecnológico, Parque Patricios |
                     CABA, Argentina
-                  </p>
+                  </Link>
                 </div>
               </div>
 
@@ -123,9 +127,13 @@ export function Contact() {
                   <h4 className="font-medium text-gray-800">
                     Nueva Línea (Llamada / chat)
                   </h4>
-                  <p className="text-gray-600 text-sm sm:text-base">
+                  <Link
+                    href="https://wa.me/541131064837"
+                    target="_blank"
+                    className="text-gray-600 text-sm sm:text-base underline"
+                  >
                     15 31064837
-                  </p>
+                  </Link>
                 </div>
               </div>
 
@@ -137,9 +145,13 @@ export function Contact() {
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-800">Email</h4>
-                  <p className="text-gray-600 text-sm sm:text-base">
+                  <Link
+                    href="mailto:info@grupogr.com.ar"
+                    target="_blank"
+                    className="text-gray-600 text-sm sm:text-base underline"
+                  >
                     info@grupogr.com.ar
-                  </p>
+                  </Link>
                 </div>
               </div>
 

@@ -6,7 +6,11 @@ import Link from "next/link"
 export default function BudgetPage() {
   return (
     <main className="flex min-h-screen flex-col pt-[120px] pb-16">
-      <div className="bg-blue-500 h-[280px] w-full"></div>
+      <div className="bg-blue-500 h-[280px] w-full flex items-center justify-center">
+        <h1 className="text-white text-4xl font-bold mb-20 max-md:mb-10 max-md:text-2xl">
+          En que podemos ayudarte?
+        </h1>
+      </div>
 
       {/* Contenedor del formulario */}
       <div className="container mx-auto px-4 -mt-[100px] mb-16">

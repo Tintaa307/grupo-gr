@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Phone, Mail, Instagram, MessageSquare } from "lucide-react"
+import { Phone, Mail, Instagram, Truck } from "lucide-react"
 
 const WhatsAppIcon = () => (
   <svg
@@ -23,40 +23,45 @@ const WhatsAppIcon = () => (
 export function ContactBar() {
   const contactItems = [
     {
-      href: "tel:1131064837",
       icon: WhatsAppIcon,
       text: "11 3106-4837",
+      action: "https://wa.me/541131064837",
     },
     {
-      href: "tel:0114912-1045",
       icon: Phone,
       text: "011 4912-1045",
+      action: "tel:541149121045",
     },
     {
-      href: "https://wa.me/1131093621",
-      icon: MessageSquare,
+      icon: WhatsAppIcon,
       text: "11 3109-3621",
+      action: "https://wa.me/541131093621",
     },
     {
-      href: "mailto:info@grupogalleries.com",
       icon: Mail,
-      text: "info@grupogalleries.com",
+      text: "info@grupogr.com.ar ",
+      action: "mailto:info@grupogr.com.ar ",
     },
     {
-      href: "https://instagram.com/grupogalleries",
       icon: Instagram,
       text: "@grupogalleries",
+      action: "https://instagram.com/grupogalleries",
+    },
+    {
+      icon: Truck,
+      text: "Envíos a todo el país",
+      action: "https://wa.me/541131064837",
     },
   ]
 
   return (
-    <div className="w-full bg-white border-b py-2 fixed top-0 left-0 z-50 max-md:hidden">
-      <div className="container mx-auto flex flex-wrap justify-center gap-16 px-4 text-sm max-lg:gap-4">
-        {contactItems.map((item) => (
+    <div className="w-full bg-primary border-b py-2 fixed top-0 left-0 z-50 max-lg:hidden">
+      <div className="mx-auto flex flex-wrap justify-center gap-16 px-4 text-sm w-full max-xl:gap-6">
+        {contactItems.map((item, index) => (
           <Link
-            key={item.href}
-            href={item.href}
-            className="text-primary hover:underline flex items-center gap-1"
+            key={index}
+            href={item.action}
+            className="text-white hover:underline flex items-center gap-1"
           >
             <item.icon className="h-4 w-4" /> {":"} {item.text}
           </Link>

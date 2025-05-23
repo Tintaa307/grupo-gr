@@ -2,17 +2,20 @@ import Link from "next/link"
 
 const WhatsappButton = () => {
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+      <div className="bg-white text-gray-800 px-4 py-2 rounded-lg shadow-lg mb-2 text-sm font-medium">
+        ¿En qué podemos ayudarte?
+      </div>
       <Link
         href="https://wa.me/541164401067"
         target="_blank"
-        className="flex items-center justify-center w-14 h-14 rounded-full bg-green-500 text-white shadow-lg hover:bg-green-600 transition-colors duration-300"
+        className="flex items-center justify-center w-20 h-20 rounded-full bg-green-500 text-white shadow-lg hover:bg-green-600 transition-colors duration-300"
         aria-label="Contact us on WhatsApp"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
+          width="36"
+          height="36"
           viewBox="0 0 24 24"
           fill="white"
           stroke="none"

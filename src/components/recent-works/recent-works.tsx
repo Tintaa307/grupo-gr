@@ -200,12 +200,12 @@ export function RecentWorks() {
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+              {/* <div className="absolute inset-0 bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
                 <div className="text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-4">
                   <h3 className="font-bold">{trabajo.titulo}</h3>
                   <p className="text-sm">{trabajo.categoria}</p>
                 </div>
-              </div>
+              </div> */}
             </div>
           ))}
         </div>
