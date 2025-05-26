@@ -17,10 +17,13 @@ import { Separator } from "../ui/separator"
 import { sendEmailAction } from "@/actions/email-action"
 import { toast } from "sonner"
 import { ZodError } from "zod"
+import { useState } from "react"
 
 export function Contact() {
+  const [isLoading, setIsLoading] = useState(false)
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setIsLoading(true)
     try {
       const formData = new FormData(e.target as HTMLFormElement)
       const name = formData.get("name")
@@ -56,6 +59,8 @@ export function Contact() {
       }
       toast.error("Error al enviar el mensaje")
       return
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -283,7 +288,7 @@ export function Contact() {
                   size={"lg"}
                   className="px-4 sm:px-6 py-2 rounded-none border bg-transparent cursor-pointer hover:text-green-500 border-green-400 text-green-500 hover:bg-green-50 transition-colors text-sm sm:text-base"
                 >
-                  ENVIAR MENSAJE
+                  {isLoading ? "ENVIANDO..." : "ENVIAR MENSAJE"}
                 </Button>
               </div>
             </form>

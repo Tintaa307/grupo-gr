@@ -1,8 +1,10 @@
 "use server"
 
 import { ContactSchema } from "@/lib/validations/contact-schema"
+import { EmailService } from "@/services/email-service"
 import { ContactForm } from "@/types/types"
-import { sendEmail } from "@/lib/nodemailer"
+
+const emailService = new EmailService()
 
 export const sendEmailAction = async (formData: ContactForm) => {
   const validatedFields = ContactSchema.safeParse(formData)
@@ -13,7 +15,7 @@ export const sendEmailAction = async (formData: ContactForm) => {
 
   const { name, email, phone, enterprise, message } = validatedFields.data
 
-  const result = await sendEmail({
+  const result = await emailService.sendEmail({
     name,
     email,
     phone,
@@ -21,7 +23,7 @@ export const sendEmailAction = async (formData: ContactForm) => {
     message,
   })
 
-  if (result.error) {
+  if (result.status !== 200) {
     return { error: "Error al enviar el mensaje" }
   }
 
