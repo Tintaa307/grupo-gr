@@ -231,7 +231,6 @@ const container = {
 
 const header = {
   padding: "20px 30px",
-  backgroundColor: "#3b82f6",
 }
 
 const logo = {
