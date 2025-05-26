@@ -15,7 +15,7 @@ export class EmailService {
 
     const { error } = await this.resend.emails.send({
       from: "GrupoGr <website@grupogr.com.ar>",
-      to: ["valentinta@icloud.com", "info@grupogr.com.ar"],
+      to: ["info@grupogr.com.ar"],
       subject: "Nueva consulta desde GrupoGr website",
       react: ContactFormEmail({
         name,
@@ -52,7 +52,7 @@ export class EmailService {
 
     const { error } = await this.resend.emails.send({
       from: "GrupoGr <website@grupogr.com.ar>",
-      to: ["valentinta@icloud.com", "info@grupogr.com.ar"],
+      to: ["info@grupogr.com.ar"],
       subject: "Nueva solicitud de presupuesto desde GrupoGr website",
       react: BudgetFormEmail({
         name,
