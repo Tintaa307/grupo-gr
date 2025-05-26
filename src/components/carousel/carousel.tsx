@@ -92,7 +92,7 @@ export function Carousel({ images, autoPlayInterval = 5000 }: CarouselProps) {
                   src={image.src || "/placeholder.svg"}
                   alt={image.alt}
                   fill
-                  className="object-cover"
+                  className="object-center object-fit"
                   priority={index === 0}
                 />
               </div>

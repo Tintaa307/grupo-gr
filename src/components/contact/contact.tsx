@@ -42,30 +42,30 @@ export function Contact() {
 
       const response = await sendEmailAction(values)
 
-      if (response.error instanceof ZodError) {
-        console.log(response.error)
-        return
-      }
-
       if (response.error) {
-        toast.error(response.error as string)
+        // Handle Zod validation errors
+        if (Array.isArray(response.error)) {
+          response.error.forEach((err) => {
+            toast.error(err.message)
+          })
+        } else {
+          toast.error(response.error)
+        }
         return
       }
 
-      toast.success(response.success)
-    } catch (error) {
-      if (error instanceof ZodError) {
-        console.log(error)
+      if (response.success) {
+        toast.success(response.success)
       }
+    } catch (error) {
       toast.error("Error al enviar el mensaje")
-      return
     } finally {
       setIsLoading(false)
     }
   }
 
   return (
-    <section id="contact" className="w-full mb-6 sm:mb-10">
+    <section className="w-full mb-6 sm:mb-10">
       <div className="grid grid-cols-1 md:grid-cols-2">
         {/* Imagen de la imprenta */}
         <div className="relative h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px]">
@@ -84,7 +84,10 @@ export function Contact() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
             La Imprenta
           </h2>
-          <p className="sm:text-lg leading-relaxed max-lg:text-sm max-md:mb-12">
+          <p
+            id="contact"
+            className="sm:text-lg leading-relaxed max-lg:text-sm max-md:mb-12"
+          >
             Trabajamos con tecnología de última generación y un grupo humano
             calificado para hacer de la calidad, el trato comercial y el
             asesoramiento, valores distintivos que nos llenan de orgullo y hacen
@@ -278,7 +281,6 @@ export function Contact() {
                   placeholder="Escriba su mensaje"
                   rows={6}
                   className="w-full border border-gray-300 p-2 text-gray-700 text-sm sm:text-base"
-                  required
                 />
               </div>
 

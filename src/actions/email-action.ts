@@ -10,7 +10,7 @@ export const sendEmailAction = async (formData: ContactForm) => {
   const validatedFields = ContactSchema.safeParse(formData)
 
   if (!validatedFields.success) {
-    return { error: validatedFields.error }
+    return { error: validatedFields.error.errors }
   }
 
   const { name, email, phone, enterprise, message } = validatedFields.data
@@ -34,7 +34,7 @@ export const sendBudgetEmailAction = async (formData: BudgetForm) => {
   const validatedFields = BudgetSchema.safeParse(formData)
 
   if (!validatedFields.success) {
-    return { error: validatedFields.error }
+    return { error: validatedFields.error.errors }
   }
 
   const {
@@ -58,7 +58,7 @@ export const sendBudgetEmailAction = async (formData: BudgetForm) => {
     type_work,
     delivery_date,
     include_delivery,
-    message,
+    message: message || "No especificado",
   })
 
   if (result.status !== 200) {

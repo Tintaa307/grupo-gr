@@ -14,16 +14,56 @@ import Link from "next/link"
 export default function Home() {
   const carouselImages = [
     {
-      src: "/products/producto-1.jpg",
+      src: "/hero/image-1.jpg",
       alt: "Producto gráfico 1",
     },
     {
-      src: "/products/producto-2.jpg",
+      src: "/hero/image-2.jpg",
       alt: "Producto gráfico 2",
     },
     {
-      src: "/products/producto-3.jpg",
+      src: "/hero/image-3.jpg",
       alt: "Producto gráfico 3",
+    },
+    {
+      src: "/hero/image-4.jpg",
+      alt: "Producto gráfico 4",
+    },
+    {
+      src: "/hero/image-5.jpg",
+      alt: "Producto gráfico 5",
+    },
+    {
+      src: "/hero/image-6.jpg",
+      alt: "Producto gráfico 6",
+    },
+    {
+      src: "/hero/image-7.jpg",
+      alt: "Producto gráfico 7",
+    },
+    {
+      src: "/hero/image-8.jpg",
+      alt: "Producto gráfico 8",
+    },
+    {
+      src: "/hero/image-9.jpg",
+      alt: "Producto gráfico 9",
+    },
+    {
+      src: "/hero/image-10.jpg",
+      alt: "Producto gráfico 10",
+    },
+    {
+      src: "/hero/image-11.jpg",
+      alt: "Producto gráfico 11",
+    },
+    {
+      src: "/hero/image-12.jpg",
+      alt: "Producto gráfico 12",
+    },
+    {
+      src: "/hero/image-13.jpg",
+      alt: "Producto gráfico 13",
     },
   ]
 
@@ -33,9 +73,9 @@ export default function Home() {
         <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 py-12 px-4 md:px-6 items-center">
           <div className="space-y-6 max-lg:text-center max-lg:flex max-lg:flex-col max-lg:items-center">
             <h1 className="text-5xl md:text-6xl font-light tracking-tight">
-              La <span className="text-primary">calidad</span> que tu
+              La <span className="text-primary">Calidad</span> que tu
               <br />
-              empresa se merece
+              Empresa Merece
             </h1>
             <p className="text-base md:text-2xl font-light tracking-tight">
               Brindando Soluciones Gráficas para Empresas desde 1998
@@ -52,7 +92,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="relative h-[400px] w-full">
+          <div className="relative h-[500px] w-full">
             <Carousel images={carouselImages} />
           </div>
         </div>

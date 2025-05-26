@@ -61,12 +61,38 @@ export function BudgetForm() {
     setIsLoading(true)
 
     try {
-      await sendBudgetEmailAction(formData)
+      const response = await sendBudgetEmailAction(formData)
 
-      toast.success("Email enviado con éxito!")
+      if (response.error) {
+        // Handle Zod validation errors
+        if (Array.isArray(response.error)) {
+          response.error.forEach((err) => {
+            toast.error(err.message)
+          })
+        } else {
+          toast.error(response.error)
+        }
+        return
+      }
+
+      if (response.success) {
+        toast.success(response.success)
+        // Reset form after successful submission
+        setFormData({
+          name: "",
+          enterprise: "",
+          email: "",
+          phone: "",
+          locality: "",
+          type_work: "",
+          delivery_date: null,
+          include_delivery: "",
+          message: "",
+        })
+        setDate(null)
+      }
     } catch (error) {
-      console.error(error)
-      toast.error("Error al enviar el email")
+      toast.error("Error al enviar el mensaje")
     } finally {
       setIsLoading(false)
     }
@@ -251,7 +277,6 @@ export function BudgetForm() {
           placeholder="Escriba su mensaje detallando: Cantidad de ejemplares, Tipo de Papel/Gramaje, Cantidad de Colores"
           rows={6}
           className="w-full border border-gray-300 p-2 text-gray-700"
-          required
         />
       </div>
 

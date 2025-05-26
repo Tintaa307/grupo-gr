@@ -61,7 +61,9 @@ export const ContactFormEmail = ({
                   <Text style={infoTitle}>Empresa / Razón Social:</Text>
                 </Column>
                 <Column>
-                  <Text style={infoValue}>{enterprise}</Text>
+                  <Text style={infoValue}>
+                    {enterprise || "No especificado"}
+                  </Text>
                 </Column>
               </Row>
               <Hr style={divider} />
@@ -93,7 +95,9 @@ export const ContactFormEmail = ({
               </Row>
               <Row>
                 <Column>
-                  <Text style={messageStyle}>{message}</Text>
+                  <Text style={messageStyle}>
+                    {message || "No especificado"}
+                  </Text>
                 </Column>
               </Row>
             </Section>

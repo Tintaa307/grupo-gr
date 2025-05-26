@@ -10,13 +10,16 @@ export const ContactSchema = z.object({
   }),
   enterprise: z
     .string()
-    .min(1, { message: "La empresa es requerida" })
     .max(50, {
       message: "La empresa debe tener menos de 50 caracteres",
-    }),
-  message: z.string().min(1, { message: "El mensaje es requerido" }).max(500, {
-    message: "El mensaje debe tener menos de 200 caracteres",
-  }),
+    })
+    .optional(),
+  message: z
+    .string()
+    .max(500, {
+      message: "El mensaje debe tener menos de 200 caracteres",
+    })
+    .optional(),
 })
 
 export const BudgetSchema = z.object({
@@ -29,10 +32,10 @@ export const BudgetSchema = z.object({
   }),
   enterprise: z
     .string()
-    .min(1, { message: "La empresa es requerida" })
     .max(50, {
       message: "La empresa debe tener menos de 50 caracteres",
-    }),
+    })
+    .optional(),
   locality: z
     .string()
     .min(1, { message: "La localidad es requerida" })
@@ -47,7 +50,10 @@ export const BudgetSchema = z.object({
     }),
   delivery_date: z.date({ message: "La fecha de entrega es requerida" }),
   include_delivery: z.string().min(1, { message: "La entrega es requerida" }),
-  message: z.string().min(1, { message: "El mensaje es requerido" }).max(500, {
-    message: "El mensaje debe tener menos de 200 caracteres",
-  }),
+  message: z
+    .string()
+    .max(500, {
+      message: "El mensaje debe tener menos de 200 caracteres",
+    })
+    .optional(),
 })

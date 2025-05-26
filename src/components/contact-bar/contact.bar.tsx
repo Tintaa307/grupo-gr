@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Phone, Mail, Instagram, Truck } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 const WhatsAppIcon = () => (
   <svg
@@ -50,7 +51,7 @@ export function ContactBar() {
     {
       icon: Truck,
       text: "Envíos a todo el país",
-      action: "https://wa.me/541131064837",
+      action: "#",
     },
   ]
 
@@ -61,7 +62,10 @@ export function ContactBar() {
           <Link
             key={index}
             href={item.action}
-            className="text-white hover:underline flex items-center gap-1"
+            className={cn(
+              "text-white hover:underline flex items-center gap-1",
+              item.action === "#" && "hover:no-underline cursor-auto"
+            )}
           >
             <item.icon className="h-4 w-4" /> {":"} {item.text}
           </Link>

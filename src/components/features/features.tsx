@@ -7,7 +7,7 @@ import Link from "next/link"
 
 export function Features() {
   return (
-    <section id="services" className="w-full mt-8 sm:mt-12">
+    <section className="w-full mt-8 sm:mt-12">
       {/* Impresión Offset */}
       <div className="grid grid-cols-1 md:grid-cols-2">
         {/* Imagen izquierda */}

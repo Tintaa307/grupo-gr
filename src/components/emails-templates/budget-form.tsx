@@ -74,7 +74,9 @@ export const BudgetFormEmail = ({
                   <Text style={informationTableLabel}>
                     Empresa / Razón Social:
                   </Text>
-                  <Text style={informationTableValue}>{enterprise}</Text>
+                  <Text style={informationTableValue}>
+                    {enterprise || "No especificado"}
+                  </Text>
                 </Column>
               )}
             </Row>
