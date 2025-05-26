@@ -16,7 +16,6 @@ import Link from "next/link"
 import { Separator } from "../ui/separator"
 import { sendEmailAction } from "@/actions/email-action"
 import { toast } from "sonner"
-import { ZodError } from "zod"
 import { useState } from "react"
 
 export function Contact() {
@@ -58,6 +57,7 @@ export function Contact() {
         toast.success(response.success)
       }
     } catch (error) {
+      console.log(error)
       toast.error("Error al enviar el mensaje")
     } finally {
       setIsLoading(false)

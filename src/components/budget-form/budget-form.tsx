@@ -92,6 +92,7 @@ export function BudgetForm() {
         setDate(null)
       }
     } catch (error) {
+      console.log(error)
       toast.error("Error al enviar el mensaje")
     } finally {
       setIsLoading(false)
