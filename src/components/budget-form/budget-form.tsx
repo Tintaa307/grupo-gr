@@ -20,21 +20,25 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { BudgetForm as BudgetFormType } from "@/types/types"
+import { sendBudgetEmailAction } from "@/actions/email-action"
+import { toast } from "sonner"
 
 export function BudgetForm() {
-  const [formData, setFormData] = useState({
-    nombre: "",
-    empresa: "",
+  const [date, setDate] = useState<Date | null>(null)
+  const [formData, setFormData] = useState<BudgetFormType>({
+    name: "",
+    enterprise: "",
     email: "",
-    telefono: "",
-    localidad: "",
-    tipoTrabajo: "",
-    fechaEntrega: null as Date | null,
-    incluyeEntrega: "",
-    mensaje: "",
+    phone: "",
+    locality: "",
+    type_work: "",
+    delivery_date: date || null,
+    include_delivery: "",
+    message: "",
   })
 
-  const [date, setDate] = useState<Date | null>(null)
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -49,29 +53,36 @@ export function BudgetForm() {
 
   const handleDateChange = (date: Date | undefined) => {
     setDate(date || null)
-    setFormData((prev) => ({ ...prev, fechaEntrega: date || null }))
+    setFormData((prev) => ({ ...prev, delivery_date: date || null }))
   }
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
-    // Aquí iría la lógica para enviar el formulario
-    console.log("Formulario enviado:", formData)
-    alert(
-      "Mensaje enviado correctamente. Nos pondremos en contacto a la brevedad."
-    )
+    setIsLoading(true)
+
+    try {
+      await sendBudgetEmailAction(formData)
+
+      toast.success("Email enviado con éxito!")
+    } catch (error) {
+      console.error(error)
+      toast.error("Error al enviar el email")
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="nombre" className="block text-sm text-gray-800 mb-1">
+          <label htmlFor="name" className="block text-sm text-gray-800 mb-1">
             Nombre / Apellido
           </label>
           <input
-            id="nombre"
-            name="nombre"
-            value={formData.nombre}
+            id="name"
+            name="name"
+            value={formData.name}
             onChange={handleChange}
             placeholder="Escriba su Nombre"
             className="w-full border border-gray-300 p-2 text-gray-700"
@@ -79,13 +90,16 @@ export function BudgetForm() {
           />
         </div>
         <div>
-          <label htmlFor="empresa" className="block text-sm text-gray-800 mb-1">
+          <label
+            htmlFor="enterprise"
+            className="block text-sm text-gray-800 mb-1"
+          >
             Empresa / Razón Social
           </label>
           <input
-            id="empresa"
-            name="empresa"
-            value={formData.empresa}
+            id="enterprise"
+            name="enterprise"
+            value={formData.enterprise}
             onChange={handleChange}
             placeholder="Escriba su Apellido"
             className="w-full border border-gray-300 p-2 text-gray-700"
@@ -110,16 +124,13 @@ export function BudgetForm() {
           />
         </div>
         <div>
-          <label
-            htmlFor="telefono"
-            className="block text-sm text-gray-800 mb-1"
-          >
+          <label htmlFor="phone" className="block text-sm text-gray-800 mb-1">
             Teléfono
           </label>
           <input
-            id="telefono"
-            name="telefono"
-            value={formData.telefono}
+            id="phone"
+            name="phone"
+            value={formData.phone}
             onChange={handleChange}
             placeholder="Escriba su Teléfono"
             className="w-full border border-gray-300 p-2 text-gray-700"
@@ -130,15 +141,15 @@ export function BudgetForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label
-            htmlFor="localidad"
+            htmlFor="locality"
             className="block text-sm text-gray-800 mb-1"
           >
             Localidad
           </label>
           <input
-            id="localidad"
-            name="localidad"
-            value={formData.localidad}
+            id="locality"
+            name="locality"
+            value={formData.locality}
             onChange={handleChange}
             placeholder="Localidad"
             className="w-full border border-gray-300 p-2 text-gray-700"
@@ -146,7 +157,7 @@ export function BudgetForm() {
         </div>
         <div>
           <label
-            htmlFor="tipoTrabajo"
+            htmlFor="type_work"
             className="block text-sm text-gray-800 mb-1"
           >
             Tipo de trabajo{" "}
@@ -155,18 +166,20 @@ export function BudgetForm() {
             </span>
           </label>
           <Select
-            onValueChange={(value) => handleSelectChange("tipoTrabajo", value)}
+            onValueChange={(value) => handleSelectChange("type_work", value)}
           >
             <SelectTrigger className="w-full border border-gray-300 p-2 text-gray-700 h-[38px]">
               <SelectValue placeholder="—Por favor, elegí una opción—" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="offset">Impresión Offset</SelectItem>
-              <SelectItem value="digital">Impresión Digital</SelectItem>
-              <SelectItem value="gran-formato">Gran Formato</SelectItem>
-              <SelectItem value="packaging">Packaging</SelectItem>
-              <SelectItem value="diseno">Diseño Gráfico</SelectItem>
-              <SelectItem value="otro">Otro</SelectItem>
+              <SelectItem value="Impresión Offset">Impresión Offset</SelectItem>
+              <SelectItem value="Impresión Digital">
+                Impresión Digital
+              </SelectItem>
+              <SelectItem value="Gran Formato">Gran Formato</SelectItem>
+              <SelectItem value="Packaging">Packaging</SelectItem>
+              <SelectItem value="Diseño Gráfico">Diseño Gráfico</SelectItem>
+              <SelectItem value="Otro">Otro</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -175,7 +188,7 @@ export function BudgetForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label
-            htmlFor="fechaEntrega"
+            htmlFor="delivery_date"
             className="block text-sm text-gray-800 mb-1"
           >
             Fecha de Entrega
@@ -205,14 +218,14 @@ export function BudgetForm() {
         </div>
         <div>
           <label
-            htmlFor="incluyeEntrega"
+            htmlFor="include_delivery"
             className="block text-sm text-gray-800 mb-1"
           >
             Incluye Entrega?
           </label>
           <Select
             onValueChange={(value) =>
-              handleSelectChange("incluyeEntrega", value)
+              handleSelectChange("include_delivery", value)
             }
           >
             <SelectTrigger className="w-full border border-gray-300 p-2 text-gray-700 h-[38px]">
@@ -227,13 +240,13 @@ export function BudgetForm() {
       </div>
 
       <div>
-        <label htmlFor="mensaje" className="block text-sm text-gray-800 mb-1">
+        <label htmlFor="message" className="block text-sm text-gray-800 mb-1">
           Mensaje
         </label>
         <textarea
-          id="mensaje"
-          name="mensaje"
-          value={formData.mensaje}
+          id="message"
+          name="message"
+          value={formData.message}
           onChange={handleChange}
           placeholder="Escriba su mensaje detallando: Cantidad de ejemplares, Tipo de Papel/Gramaje, Cantidad de Colores"
           rows={6}
@@ -248,7 +261,7 @@ export function BudgetForm() {
           size={"lg"}
           className="px-6 py-2 border bg-transparent rounded-none border-green-400 text-green-500 hover:bg-green-50 transition-colors cursor-pointer"
         >
-          ENVIAR MENSAJE
+          {isLoading ? "Enviando..." : "ENVIAR MENSAJE"}
         </Button>
       </div>
     </form>

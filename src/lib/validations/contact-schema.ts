@@ -18,3 +18,36 @@ export const ContactSchema = z.object({
     message: "El mensaje debe tener menos de 200 caracteres",
   }),
 })
+
+export const BudgetSchema = z.object({
+  name: z.string().min(1, { message: "El nombre es requerido" }).max(20, {
+    message: "El nombre debe tener menos de 20 caracteres",
+  }),
+  email: z.string().email({ message: "El email es requerido" }),
+  phone: z.string().min(1, { message: "El teléfono es requerido" }).max(15, {
+    message: "El teléfono debe tener menos de 15 caracteres",
+  }),
+  enterprise: z
+    .string()
+    .min(1, { message: "La empresa es requerida" })
+    .max(50, {
+      message: "La empresa debe tener menos de 50 caracteres",
+    }),
+  locality: z
+    .string()
+    .min(1, { message: "La localidad es requerida" })
+    .max(50, {
+      message: "La localidad debe tener menos de 50 caracteres",
+    }),
+  type_work: z
+    .string()
+    .min(1, { message: "El tipo de trabajo es requerido" })
+    .max(50, {
+      message: "El tipo de trabajo debe tener menos de 50 caracteres",
+    }),
+  delivery_date: z.date({ message: "La fecha de entrega es requerida" }),
+  include_delivery: z.string().min(1, { message: "La entrega es requerida" }),
+  message: z.string().min(1, { message: "El mensaje es requerido" }).max(500, {
+    message: "El mensaje debe tener menos de 200 caracteres",
+  }),
+})
