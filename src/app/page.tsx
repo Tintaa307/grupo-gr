@@ -68,7 +68,7 @@ export default function Home() {
   ]
 
   return (
-    <main className="flex min-h-screen flex-col pt-[140px] md:pt-[160px]">
+    <main className="flex min-h-screen flex-col md:pt-24 max-md:pt-20">
       <section className="relative w-full h-[65vh] max-lg:h-[80vh]">
         <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 py-12 px-4 md:px-6 items-center">
           <div className="space-y-6 max-lg:text-center max-lg:flex max-lg:flex-col max-lg:items-center">
@@ -92,7 +92,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="relative h-[500px] w-full max-md:h-[400px] mb-20">
+          <div className="relative h-[500px] w-full max-md:h-[400px]">
             <Carousel images={carouselImages} />
           </div>
         </div>

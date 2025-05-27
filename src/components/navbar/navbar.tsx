@@ -45,7 +45,7 @@ export function Navbar() {
 
   return (
     <header
-      className={`w-full bg-white py-5 border-b fixed top-8 max-lg:top-0 left-0 z-40 transition-all duration-300 max-md:top-0 shadow-md`}
+      className={`w-full bg-white py-5 border-b fixed top-8 max-lg:top-0 left-0 z-40 transition-all duration-300 max-md:top-0 shadow-md max-md:py-3`}
     >
       <div className="container mx-auto flex flex-wrap justify-between items-center px-4">
         {/* Logo */}
