@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState, useRef, useEffect, FormEvent } from "react"
+import { useState, useRef, useEffect } from "react"
 import { X, Send, Bot, User } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useChat } from "@ai-sdk/react"
