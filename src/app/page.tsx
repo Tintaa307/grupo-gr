@@ -92,7 +92,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="relative h-[500px] w-full max-md:h-[400px]">
+          <div className="relative h-[500px] w-full max-md:h-[400px] mb-12">
             <Carousel images={carouselImages} />
           </div>
         </div>
