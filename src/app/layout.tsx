@@ -58,7 +58,7 @@ export default function RootLayout({
         <ContactBar />
         <Navbar />
         {children}
-        <Chatbot />
+        {/* <Chatbot /> */}
         <Footer />
         <WhatsappButton />
       </body>
