@@ -16,7 +16,7 @@ export function Footer() {
             width="600"
             height="450"
             loading="lazy"
-            className="w-[50%]"
+            className="w-[50%] max-md:w-[100%]"
           />
         </div>
       </div>
