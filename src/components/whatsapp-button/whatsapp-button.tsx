@@ -2,7 +2,7 @@ import Link from "next/link"
 
 const WhatsappButton = () => {
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+    <div className="fixed bottom-6 left-6 z-50 flex flex-col items-start">
       <div className="bg-white text-gray-800 px-4 py-2 rounded-lg shadow-lg mb-2 text-sm font-medium">
         ¿En qué podemos ayudarte?
       </div>

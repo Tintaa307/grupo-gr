@@ -3,7 +3,7 @@ import Image from "next/image"
 export function EnviosBanner() {
   return (
     <section className="w-full py-6 sm:py-8 border-t border-b border-gray-200">
-      <div className="container mx-auto px-2 sm:px-4">
+      <div className="mx-auto px-2 sm:px-4 max-lg:w-full">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-12 items-center">
           {/* Mapa de Argentina con texto */}
           <div className="relative flex justify-center">
