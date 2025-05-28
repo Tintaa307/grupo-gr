@@ -13,7 +13,7 @@ export async function POST(request: Request) {
   const result = await streamText({
     model: openai("gpt-4o-mini"),
     system: `
-      Eres un asistente virtual para Grupo Gr, una agencia de diseño gráfico.
+      Eres un asistente virtual para Grupo Gr, una agencia de diseño gráfico. Si te piden informacion sobre el sitio o Grupo Galleries / Grupo gr, simplemente respondele con lo que hace la empresa y listale los servicios que ofrece.
       🖨 SERVICIOS GENERALES
 
         1. ¿Qué tipo de impresiones realizan?
