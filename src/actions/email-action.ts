@@ -33,6 +33,8 @@ export const sendEmailAction = async (formData: ContactForm) => {
 export const sendBudgetEmailAction = async (formData: BudgetForm) => {
   const validatedFields = BudgetSchema.safeParse(formData)
 
+  console.log(validatedFields.error)
+
   if (!validatedFields.success) {
     return { error: validatedFields.error.errors }
   }

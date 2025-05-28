@@ -44,11 +44,14 @@ export default function BudgetPage() {
                   </div>
                   <div>
                     <h3 className="font-medium text-gray-800">Dirección:</h3>
-                    <p className="text-gray-600">
+                    <Link
+                      href="https://www.google.com/maps?ll=-34.643754,-58.403699&z=16&t=m&hl=es&gl=AR&mapclient=embed&q=José+C.+Paz+2969+C1437IQA+Cdad.+Autónoma+de+Buenos+Aires"
+                      className="text-gray-600 underline"
+                    >
                       José C. Paz 2969, Distrito Tecnológico,
                       <br />
                       Parque Patricios | CABA, Argentina
-                    </p>
+                    </Link>
                   </div>
                 </div>
 
@@ -73,7 +76,12 @@ export default function BudgetPage() {
                   </div>
                   <div>
                     <h3 className="font-medium text-gray-800">Whatsapp</h3>
-                    <p className="text-gray-600">(5491) 3109-3621</p>
+                    <Link
+                      href="https://wa.me/549131093621"
+                      className="text-gray-600 underline"
+                    >
+                      (5491) 3109-3621
+                    </Link>
                   </div>
                 </div>
 
@@ -100,9 +108,19 @@ export default function BudgetPage() {
                     <h3 className="font-medium text-gray-800">
                       Teléfono Comercial:
                     </h3>
-                    <p className="text-gray-600">
-                      TE: (54 11) 4912-7398 / (5411) 4912-1045
-                    </p>
+                    <Link
+                      href="https://wa.me/541149127398"
+                      className="text-gray-600 underline"
+                    >
+                      TE: 54 11 4912-7398
+                    </Link>
+                    {" / "}
+                    <Link
+                      href="https://wa.me/541149121045"
+                      className="text-gray-600 underline"
+                    >
+                      TE: 54 11 4912-1045
+                    </Link>
                   </div>
                 </div>
 
@@ -128,7 +146,12 @@ export default function BudgetPage() {
                   </div>
                   <div>
                     <h3 className="font-medium text-gray-800">E-Mail</h3>
-                    <p className="text-gray-600">info@grupogr.com.ar</p>
+                    <Link
+                      href="mailto:info@grupogr.com.ar"
+                      className="text-gray-600 underline"
+                    >
+                      info@grupogr.com.ar
+                    </Link>
                   </div>
                 </div>
 

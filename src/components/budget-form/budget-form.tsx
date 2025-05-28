@@ -76,7 +76,6 @@ export function BudgetForm() {
 
       if (response.success) {
         toast.success(response.success)
-        // Reset form after successful submission
         setFormData({
           name: "",
           enterprise: "",

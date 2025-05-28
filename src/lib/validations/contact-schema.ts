@@ -48,7 +48,7 @@ export const BudgetSchema = z.object({
       message: "El tipo de trabajo debe tener menos de 50 caracteres",
     })
     .optional(),
-  delivery_date: z.date().optional(),
+  delivery_date: z.date().optional().nullable(),
   include_delivery: z.string().optional(),
   message: z
     .string()
