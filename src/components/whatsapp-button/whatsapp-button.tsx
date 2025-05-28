@@ -3,19 +3,19 @@ import Link from "next/link"
 const WhatsappButton = () => {
   return (
     <div className="fixed bottom-6 left-6 z-50 flex flex-col items-start">
-      <div className="bg-white text-gray-800 px-4 py-2 rounded-lg shadow-lg mb-2 text-sm font-medium">
+      <div className="bg-white text-gray-800 px-4 py-2 rounded-lg shadow-xl border border-gray-200 mb-2 text-base font-medium">
         ¿En qué podemos ayudarte?
       </div>
       <Link
         href="https://wa.me/541164401067"
         target="_blank"
-        className="flex items-center justify-center w-20 h-20 rounded-full bg-green-500 text-white shadow-lg hover:bg-green-600 transition-colors duration-300"
+        className="flex items-center justify-center w-24 h-24 rounded-full bg-green-500 text-white shadow-lg hover:bg-green-600 transition-colors duration-300"
         aria-label="Contact us on WhatsApp"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="36"
-          height="36"
+          width="44"
+          height="44"
           viewBox="0 0 24 24"
           fill="white"
           stroke="none"

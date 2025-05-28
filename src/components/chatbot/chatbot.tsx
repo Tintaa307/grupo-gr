@@ -42,15 +42,15 @@ export function Chatbot() {
             onClick={() => setIsOpen(true)}
             className="bg-white rounded-lg shadow-lg border border-gray-200 p-3 py-5 cursor-pointer hover:shadow-xl transition-all duration-300 min-w-[300px]"
           >
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               <div className="relative">
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
               </div>
               <div>
-                <p className="font-medium text-gray-800 text-sm">
+                <p className="font-medium text-gray-800 text-base">
                   Asistente Virtual
                 </p>
-                <p className="text-xs text-gray-500">¿En qué puedo ayudarte?</p>
+                <p className="text-sm text-gray-500">¿En qué puedo ayudarte?</p>
               </div>
             </div>
           </div>
