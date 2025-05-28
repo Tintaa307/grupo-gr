@@ -40,7 +40,7 @@ export function Chatbot() {
         {!isOpen && (
           <div
             onClick={() => setIsOpen(true)}
-            className="bg-white rounded-lg shadow-lg border border-gray-200 p-3 cursor-pointer hover:shadow-xl transition-all duration-300 min-w-[240px]"
+            className="bg-white rounded-lg shadow-lg border border-gray-200 p-3 py-5 cursor-pointer hover:shadow-xl transition-all duration-300 min-w-[300px]"
           >
             <div className="flex items-center gap-3">
               <div className="relative">
