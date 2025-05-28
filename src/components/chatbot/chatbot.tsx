@@ -64,7 +64,7 @@ export function Chatbot() {
               <div className="flex items-center gap-2">
                 <Bot className="h-5 w-5" />
                 <div>
-                  <h3 className="font-medium">Asistente de Synera</h3>
+                  <h3 className="font-medium">Asistente de Grupo Galleries</h3>
                   <p className="text-xs opacity-90">En línea</p>
                 </div>
               </div>
