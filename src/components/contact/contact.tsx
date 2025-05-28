@@ -42,7 +42,6 @@ export function Contact() {
       const response = await sendEmailAction(values)
 
       if (response.error) {
-        // Handle Zod validation errors
         if (Array.isArray(response.error)) {
           response.error.forEach((err) => {
             toast.error(err.message)
