@@ -144,6 +144,11 @@ export function Chatbot() {
                   autoFocus
                   value={input}
                   onChange={handleInputChange}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      handleSubmit()
+                    }
+                  }}
                   placeholder="Escribe tu mensaje..."
                   className="flex-1 text-sm"
                   disabled={isLoading}
@@ -151,6 +156,11 @@ export function Chatbot() {
                 <Button
                   onClick={handleSubmit}
                   size="icon"
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      handleSubmit()
+                    }
+                  }}
                   className="bg-primary hover:bg-primary/80 h-10 w-10 cursor-pointer"
                   disabled={!input.trim() || isLoading}
                 >
