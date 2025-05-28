@@ -19,7 +19,7 @@ export function Chatbot() {
           id: "welcome",
           role: "assistant",
           content:
-            "Hola, soy el asistente virtual de Grupo Gr. Dime en que puedo ayudarte.",
+            "Hola, soy el asistente virtual de Grupo Galleries. Dime en que puedo ayudarte.",
         },
       ],
     })
