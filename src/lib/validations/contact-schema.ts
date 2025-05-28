@@ -38,18 +38,18 @@ export const BudgetSchema = z.object({
     .optional(),
   locality: z
     .string()
-    .min(1, { message: "La localidad es requerida" })
     .max(50, {
       message: "La localidad debe tener menos de 50 caracteres",
-    }),
+    })
+    .optional(),
   type_work: z
     .string()
-    .min(1, { message: "El tipo de trabajo es requerido" })
     .max(50, {
       message: "El tipo de trabajo debe tener menos de 50 caracteres",
-    }),
-  delivery_date: z.date({ message: "La fecha de entrega es requerida" }),
-  include_delivery: z.string().min(1, { message: "La entrega es requerida" }),
+    })
+    .optional(),
+  delivery_date: z.date().optional(),
+  include_delivery: z.string().optional(),
   message: z
     .string()
     .max(500, {

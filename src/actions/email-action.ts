@@ -54,10 +54,10 @@ export const sendBudgetEmailAction = async (formData: BudgetForm) => {
     email,
     phone,
     enterprise,
-    locality,
-    type_work,
-    delivery_date,
-    include_delivery,
+    locality: locality || "No especificado",
+    type_work: type_work || "No especificado",
+    delivery_date: delivery_date || null,
+    include_delivery: include_delivery || "No especificado",
     message: message || "No especificado",
   })
 
