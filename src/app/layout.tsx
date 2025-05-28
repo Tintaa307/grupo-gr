@@ -6,6 +6,7 @@ import WhatsappButton from "@/components/whatsapp-button/whatsapp-button"
 import { ContactBar } from "@/components/contact-bar/contact.bar"
 import { Footer } from "@/components/footer/footer"
 import { Toaster } from "sonner"
+import { Chatbot } from "@/components/chatbot/chatbot"
 
 const robotoSerif = Roboto({
   subsets: ["latin"],
@@ -57,7 +58,7 @@ export default function RootLayout({
         <ContactBar />
         <Navbar />
         {children}
-        {/* <Chatbot /> */}
+        <Chatbot />
         <Footer />
         <WhatsappButton />
       </body>
