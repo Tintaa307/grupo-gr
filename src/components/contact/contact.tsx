@@ -135,11 +135,11 @@ export function Contact() {
                     Nueva Línea (Llamada / chat)
                   </h4>
                   <Link
-                    href="https://wa.me/541131064837"
+                    href="https://wa.me/541164401067"
                     target="_blank"
                     className="text-gray-600 text-sm sm:text-base underline"
                   >
-                    15 31064837
+                    11 6440 1067
                   </Link>
                 </div>
               </div>
