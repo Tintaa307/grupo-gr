@@ -25,7 +25,7 @@ export function ContactBar() {
   const contactItems = [
     {
       icon: WhatsAppIcon,
-      text: "11 3106-4837",
+      text: "11 6440-1067",
       action: "https://wa.me/541131064837",
     },
     {
