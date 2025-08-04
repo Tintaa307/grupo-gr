@@ -90,7 +90,7 @@ export function Navbar() {
         </div>
 
         {/* Menú móvil */}
-        <Sheet>
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild className="lg:hidden">
             <Button variant="outline" size="icon">
               <Menu className="h-6 w-6" />
