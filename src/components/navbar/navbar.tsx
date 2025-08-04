@@ -18,6 +18,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import { useState } from "react"
 
 export function Navbar() {
   const navItems = [
@@ -42,6 +43,8 @@ export function Navbar() {
       href: "/#contact",
     },
   ]
+
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <header
@@ -143,30 +146,35 @@ export function Navbar() {
             <nav className="flex flex-col space-y-1">
               <Link
                 href="/la-imprenta"
+                onClick={() => setIsOpen(false)}
                 className="text-gray-700 hover:text-blue-500 hover:bg-gray-100 py-3 px-2 rounded-md transition-colors"
               >
                 La imprenta
               </Link>
               <Link
-                href="/productos"
+                href="/#products"
+                onClick={() => setIsOpen(false)}
                 className="text-gray-700 hover:text-blue-500 hover:bg-gray-100 py-3 px-2 rounded-md transition-colors"
               >
                 Productos
               </Link>
               <Link
                 href="/offset-digital"
+                onClick={() => setIsOpen(false)}
                 className="text-gray-700 hover:text-blue-500 hover:bg-gray-100 py-3 px-2 rounded-md transition-colors"
               >
                 Offset / Digital
               </Link>
               <Link
-                href="/servicios"
+                href="/#services"
+                onClick={() => setIsOpen(false)}
                 className="text-gray-700 hover:text-blue-500 hover:bg-gray-100 py-3 px-2 rounded-md transition-colors"
               >
                 Servicios
               </Link>
               <Link
                 href="/budget"
+                onClick={() => setIsOpen(false)}
                 className="text-gray-700 hover:text-blue-500 hover:bg-gray-100 py-3 px-2 rounded-md transition-colors"
               >
                 Presupuestos
@@ -177,6 +185,7 @@ export function Navbar() {
               <Button
                 variant="default"
                 className="w-full bg-blue-500 hover:bg-blue-600"
+                onClick={() => setIsOpen(false)}
               >
                 Pedir Cotización
               </Button>
