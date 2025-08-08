@@ -7,6 +7,7 @@ import { ContactBar } from "@/components/contact-bar/contact.bar"
 import { Footer } from "@/components/footer/footer"
 import { Toaster } from "sonner"
 import { Chatbot } from "@/components/chatbot/chatbot"
+import { TagManagerProvider } from "@/context/tag-manager"
 
 const robotoSerif = Roboto({
   subsets: ["latin"],
@@ -54,13 +55,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${robotoSerif.className} antialiased`}>
-        <Toaster richColors duration={4000} position="top-right" />
-        <ContactBar />
-        <Navbar />
-        {children}
-        <Chatbot />
-        <Footer />
-        <WhatsappButton />
+        <TagManagerProvider>
+          <Toaster richColors duration={4000} position="top-right" />
+          <ContactBar />
+          <Navbar />
+          {children}
+          <Chatbot />
+          <Footer />
+          <WhatsappButton />
+        </TagManagerProvider>
       </body>
     </html>
   )
