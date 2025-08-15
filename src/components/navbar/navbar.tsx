@@ -128,10 +128,10 @@ export function Navbar() {
                   <MessageSquare className="h-4 w-4" /> 11 3109-3621
                 </Link>
                 <Link
-                  href="mailto:info@grupogalleries.com"
+                  href="mailto:info@grupogr.com.ar"
                   className="text-blue-500 hover:underline flex items-center gap-2"
                 >
-                  <Mail className="h-4 w-4" /> info@grupogalleries.com
+                  <Mail className="h-4 w-4" /> info@grupogr.com.ar
                 </Link>
                 <Link
                   href="https://instagram.com/grupogalleries"
