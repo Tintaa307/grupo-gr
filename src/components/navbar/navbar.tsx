@@ -182,13 +182,15 @@ export function Navbar() {
             </nav>
 
             <div className="mt-8">
-              <Button
-                variant="default"
-                className="w-full bg-blue-500 hover:bg-blue-600"
-                onClick={() => setIsOpen(false)}
-              >
-                Pedir Cotización
-              </Button>
+              <Link href="/budget">
+                <Button
+                  variant="default"
+                  className="w-full bg-blue-500 hover:bg-blue-600"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Pedir Cotización
+                </Button>
+              </Link>
             </div>
           </SheetContent>
         </Sheet>
