@@ -1,0 +1,67 @@
+name: Deploy to Vercel
+on:
+  push:
+    branches: ["**"]   # Producción en master, preview en cualquier otra
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}         # Token de Vercel (cuenta de la empresa)
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }} # prj_xxxxxxxx
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}         # team_xxxxxxxx
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - run: pnpm install --frozen-lockfile
+
+      # 1) Autenticación del CLI
+      - name: Vercel auth setup
+        run: |
+          mkdir -p ~/.vercel
+          printf '{"token":"%s"}' "$VERCEL_TOKEN" > ~/.vercel/auth.json
+          chmod 600 ~/.vercel/auth.json
+
+      # 2) Crear .vercel/project.json
+      - name: Write Vercel project config
+        run: |
+          mkdir -p .vercel
+          cat > .vercel/project.json <<EOF
+          {
+            "projectId": "${VERCEL_PROJECT_ID}",
+            "orgId": "${VERCEL_ORG_ID}"
+          }
+          EOF
+
+      # ---------- PREVIEW (todas menos master) ----------
+      - name: Pull env (preview)
+        if: github.ref != 'refs/heads/master'
+        run: pnpm dlx vercel pull --yes --environment=preview --token "$VERCEL_TOKEN"
+
+      - name: Build (preview)
+        if: github.ref != 'refs/heads/master'
+        run: |
+          rm -rf .vercel/output
+          pnpm dlx vercel build --token "$VERCEL_TOKEN"
+
+      - name: Deploy (preview)
+        if: github.ref != 'refs/heads/master'
+        run: pnpm dlx vercel deploy --prebuilt --token "$VERCEL_TOKEN"
+
+      # ---------- PRODUCCIÓN (master) ----------
+      - name: Pull env (production)
+        if: github.ref == 'refs/heads/master'
+        run: pnpm dlx vercel pull --yes --environment=production --token "$VERCEL_TOKEN"
+
+      - name: Build (production)
+        if: github.ref == 'refs/heads/master'
+        run: |
+          rm -rf .vercel/output
+          pnpm dlx vercel build --prod --token "$VERCEL_TOKEN"
+
+      - name: Deploy (production)
+        if: github.ref == 'refs/heads/master'
+        run: pnpm dlx vercel deploy --prebuilt --prod --token "$VERCEL_TOKEN"
