@@ -76,12 +76,23 @@ export default function BudgetPage() {
                   </div>
                   <div>
                     <h3 className="font-medium text-gray-800">Whatsapp</h3>
-                    <Link
-                      href="https://wa.me/549131093621"
-                      className="text-gray-600 underline"
-                    >
-                      (5491) 3109-3621
-                    </Link>
+                    <div className="flex flex-col sm:flex-row gap-2">
+                      <Link
+                        href="https://wa.me/541164401067"
+                        target="_blank"
+                        className="text-gray-600 text-sm sm:text-base underline"
+                      >
+                        11 6440 1067
+                      </Link>
+
+                      <Link
+                        href="https://wa.me/541128079238"
+                        target="_blank"
+                        className="text-gray-600 text-sm sm:text-base underline"
+                      >
+                        11 2807 9238
+                      </Link>
+                    </div>
                   </div>
                 </div>
 

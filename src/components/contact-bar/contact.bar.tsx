@@ -35,8 +35,8 @@ export function ContactBar() {
     },
     {
       icon: WhatsAppIcon,
-      text: "11 3109-3621",
-      action: "https://wa.me/541131093621",
+      text: "11 2807-9238",
+      action: "https://wa.me/541128079238",
     },
     {
       icon: Mail,
