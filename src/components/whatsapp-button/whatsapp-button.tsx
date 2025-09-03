@@ -7,7 +7,7 @@ const WhatsappButton = () => {
         ¿En qué podemos ayudarte?
       </div>
       <Link
-        href="https://wa.me/541164401067"
+        href="https://wa.me/541128079238"
         target="_blank"
         className="flex items-center justify-center w-24 h-24 rounded-full bg-green-500 text-white shadow-lg hover:bg-green-600 transition-colors duration-300"
         aria-label="Contact us on WhatsApp"
