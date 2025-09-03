@@ -122,10 +122,10 @@ export function Navbar() {
                   <Phone className="h-4 w-4" /> 011 4912-1045
                 </Link>
                 <Link
-                  href="https://wa.me/1131093621"
+                  href="https://wa.me/541128079238"
                   className="text-blue-500 hover:underline flex items-center gap-2"
                 >
-                  <MessageSquare className="h-4 w-4" /> 11 3109-3621
+                  <MessageSquare className="h-4 w-4" /> 11 2807-9238
                 </Link>
                 <Link
                   href="mailto:info@grupogr.com.ar"
