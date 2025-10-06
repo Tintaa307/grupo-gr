@@ -14,14 +14,6 @@ import Link from "next/link"
 export default function Home() {
   const carouselImages = [
     {
-      src: "/hero/image-hero-1.jpg",
-      alt: "Producto gráfico 1",
-    },
-    {
-      src: "/hero/image-hero-2.jpg",
-      alt: "Producto gráfico 2",
-    },
-    {
       src: "/hero/image-hero-3.jpg",
       alt: "Producto gráfico 3",
     },
@@ -64,6 +56,14 @@ export default function Home() {
     {
       src: "/hero/image-hero-13.jpg",
       alt: "Producto gráfico 13",
+    },
+    {
+      src: "/hero/image-hero-1.jpg",
+      alt: "Producto gráfico 1",
+    },
+    {
+      src: "/hero/image-hero-2.jpg",
+      alt: "Producto gráfico 2",
     },
   ]
 
