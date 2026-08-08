@@ -1,7 +1,3 @@
-"use client"
-
-import type React from "react"
-
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import {
@@ -11,58 +7,12 @@ import {
   Facebook,
   Instagram,
   Linkedin,
+  ArrowRight,
 } from "lucide-react"
 import Link from "next/link"
 import { Separator } from "../ui/separator"
-import { sendEmailAction } from "@/actions/email-action"
-import { toast } from "sonner"
-import { useState } from "react"
 
 export function Contact() {
-  const [isLoading, setIsLoading] = useState(false)
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsLoading(true)
-    try {
-      const formData = new FormData(e.target as HTMLFormElement)
-      const name = formData.get("name")
-      const enterprise = formData.get("enterprise")
-      const email = formData.get("email")
-      const phone = formData.get("phone")
-      const message = formData.get("message")
-
-      const values = {
-        name: name as string,
-        enterprise: enterprise as string,
-        email: email as string,
-        phone: phone as string,
-        message: message as string,
-      }
-
-      const response = await sendEmailAction(values)
-
-      if (response.error) {
-        if (Array.isArray(response.error)) {
-          response.error.forEach((err) => {
-            toast.error(err.message)
-          })
-        } else {
-          toast.error(response.error)
-        }
-        return
-      }
-
-      if (response.success) {
-        toast.success(response.success)
-      }
-    } catch (error) {
-      console.log(error)
-      toast.error("Error al enviar el mensaje")
-    } finally {
-      setIsLoading(false)
-    }
-  }
-
   return (
     <section className="w-full mb-6 sm:mb-10">
       <div className="grid grid-cols-1 md:grid-cols-2">
@@ -96,11 +46,10 @@ export function Contact() {
         </div>
       </div>
 
-      {/* Formulario de contacto */}
-      <div className="bg-white shadow-lg mx-auto -mt-6 sm:-mt-10 relative z-10 max-w-5xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 p-5 sm:p-8">
-          {/* Información de contacto */}
-          <div className="md:border-r border-gray-200 md:pr-6 lg:pr-8 mb-8 md:mb-0">
+      {/* Información de contacto */}
+      <div className="bg-white shadow-lg mx-auto -mt-6 sm:-mt-10 relative z-10 max-w-2xl">
+        <div className="p-5 sm:p-8">
+          <div>
             <h3 className="text-lg sm:text-xl font-medium text-gray-800">
               Grupo Galleries Review SRL
             </h3>
@@ -194,107 +143,18 @@ export function Contact() {
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Formulario */}
-          <div className="md:pl-6 lg:pl-8 pt-0">
-            <h3 className="text-lg sm:text-xl font-medium text-gray-800">
-              Contacto
-            </h3>
-            <div className="border-b border-dashed border-gray-300 mt-2 mb-6 sm:mb-8"></div>
-
-            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label
-                    htmlFor="nombre"
-                    className="block text-sm text-gray-800 mb-1"
-                  >
-                    Nombre / Apellido
-                  </label>
-                  <input
-                    id="nombre"
-                    name="name"
-                    placeholder="Escriba su Nombre"
-                    className="w-full border border-gray-300 p-2 text-gray-700 text-sm sm:text-base"
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="empresa"
-                    className="block text-sm text-gray-800 mb-1"
-                  >
-                    Empresa / Razón Social
-                  </label>
-                  <input
-                    id="empresa"
-                    name="enterprise"
-                    placeholder="Escriba su Apellido"
-                    className="w-full border border-gray-300 p-2 text-gray-700 text-sm sm:text-base"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm text-gray-800 mb-1"
-                  >
-                    Email
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="Escriba su Email"
-                    className="w-full border border-gray-300 p-2 text-gray-700 text-sm sm:text-base"
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="telefono"
-                    className="block text-sm text-gray-800 mb-1"
-                  >
-                    Teléfono
-                  </label>
-                  <input
-                    id="telefono"
-                    name="phone"
-                    placeholder="Escriba su Teléfono"
-                    className="w-full border border-gray-300 p-2 text-gray-700 text-sm sm:text-base"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label
-                  htmlFor="mensaje"
-                  className="block text-sm text-gray-800 mb-1"
-                >
-                  Mensaje
-                </label>
-                <textarea
-                  id="mensaje"
-                  name="message"
-                  placeholder="Escriba su mensaje"
-                  rows={6}
-                  className="w-full border border-gray-300 p-2 text-gray-700 text-sm sm:text-base"
-                />
-              </div>
-
-              <div>
+            <div className="mt-8 sm:mt-10">
+              <Link href="/budget" className="block">
                 <Button
-                  type="submit"
-                  size={"lg"}
-                  className="px-4 sm:px-6 py-2 rounded-none border bg-transparent cursor-pointer hover:text-green-500 border-green-400 text-green-500 hover:bg-green-50 transition-colors text-sm sm:text-base"
+                  size="lg"
+                  className="w-full py-6 text-base sm:text-lg bg-primary hover:bg-primary/90 cursor-pointer group"
                 >
-                  {isLoading ? "ENVIANDO..." : "ENVIAR MENSAJE"}
+                  Solicitar Presupuesto
+                  <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
                 </Button>
-              </div>
-            </form>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

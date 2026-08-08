@@ -80,7 +80,7 @@ export default function Home() {
             <p className="text-base md:text-2xl font-light tracking-tight">
               Brindando Soluciones Gráficas para Empresas desde 1998
             </p>
-            <Link href="/#contact">
+            <Link href="/budget">
               <Button
                 variant="default"
                 size="lg"
