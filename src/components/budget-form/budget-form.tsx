@@ -126,7 +126,7 @@ export function BudgetForm() {
             name="enterprise"
             value={formData.enterprise}
             onChange={handleChange}
-            placeholder="Escriba su Apellido"
+            placeholder="Escriba su Empresa"
             className="w-full border border-gray-300 p-2 text-gray-700"
           />
         </div>
